@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from adopt import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^home/',views.home, name='home'),
+    url(r'^upload/',views.upload, name='upload'),
+    url(r'^dogs/(?P<key>.*)/$', views.display_dogs, name='display_dogs'),
+    url(r'^dog/(?P<pk>[0-9])/$', views.single_dog, name='single_dog')
 ]
