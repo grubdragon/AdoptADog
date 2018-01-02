@@ -5,6 +5,9 @@ from django.db import models
 # Create your models here.
 class Dog(models.Model):
 
+    # lookup_breed = 'GermanShepherd'
+    # breed = 'German Shepherd'
+    lookup_breed = models.CharField(max_length=30)
     breed = models.CharField(max_length=30)
 
     class Meta:
@@ -13,6 +16,10 @@ class Dog(models.Model):
 
     def __str__(self):
         return self.breed
+
+    def clean():
+        self.lookup_breed = self.breed.replace(' ','')
+
 
 class UserProfile(models.Model):
 
