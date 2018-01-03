@@ -7,7 +7,7 @@ class Dog(models.Model):
 
     # lookup_breed = 'GermanShepherd'
     # breed = 'German Shepherd'
-    lookup_breed = models.CharField(max_length=30)
+    lookup_breed = models.CharField(max_length=30, default='')
     breed = models.CharField(max_length=30)
 
     class Meta:
@@ -24,7 +24,7 @@ class Dog(models.Model):
 class UserProfile(models.Model):
 
     name = models.CharField(max_length=30)
-    email = models.CharField(max_length=30)
+    email = models.EmailField()
     dogs_adopted = models.ForeignKey(Dog, related_name='dogs_adopted', on_delete=models.CASCADE)
     dogs_putup = models.ForeignKey(Dog, related_name='dogs_putup', on_delete=models.CASCADE)
     rating = models.FloatField()

@@ -1,3 +1,10 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>
+
 <div class="container">
     <div class="well well-sm">
         <strong>Category Title</strong>
