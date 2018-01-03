@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from models import UserProfile, Dog, DogsUploaded
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def index(request):
@@ -21,11 +22,17 @@ def upload(request):
         # Handle other data similarly
         return render(request, 'thankyou.html')
 
-def display_dogs(request,breed):
+@csrf_protect
+def display_dogs(request):
 
-    dogs = DogsUploaded(dog__lookup_breed__iexact=breed)
-    return render(request,'dogs.html',{ 'dogs':dogs })
+    if request.method == 'POST':
+        breed = request.POST['breed']
+        print breed
+        dogs = DogsUploaded.objects.filter(dog__lookup_breed__iexact=breed)
+        return render(request,'dogs.html',{ 'dogs':dogs })
 
+    if request.method == 'GET':
+        return render(request, 'enter_breed.html')
 def single_dog(request,pk):
 
     dog = DogsUploaded(pk=pk)

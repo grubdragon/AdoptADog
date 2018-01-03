@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^home/',views.home, name='home'),
     url(r'^upload/',views.upload, name='upload'),
-    url(r'^dogs/(?P<breed>.*)/$', views.display_dogs, name='display_dogs'),
+    url(r'^dogs/$', views.display_dogs, name='display_dogs'),
     url(r'^dog/(?P<pk>[0-9])/$', views.single_dog, name='single_dog')
 ]

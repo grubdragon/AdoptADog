@@ -1,0 +1,8 @@
+<form action="/dogs/" method="post">
+    {% csrf_token %}
+<div class="form-group col-md-6">
+      <label for="breed">Breed</label>
+      <input type="text" class="form-control" name="breed" id="breed">
+    </div>
+
+<input type="submit" name="Search">
