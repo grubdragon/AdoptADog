@@ -41,7 +41,7 @@ class DogsUploaded(models.Model):
     name = models.CharField(max_length=20, blank=True)
     uploader = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
-    image_link = models.URLField()
+    image = models.FileField(upload_to='uploads/')
     description = models.CharField(max_length=200, default='')
 
 
