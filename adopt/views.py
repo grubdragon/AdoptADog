@@ -22,6 +22,10 @@ def upload(request):
         # Handle other data similarly
         return render(request, 'thankyou.html')
 
+def profile(request):
+    return redirect(reverse('home'))
+ 
+
 @csrf_protect
 def display_dogs(request):
 
